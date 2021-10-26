@@ -7,6 +7,27 @@
   pointer-events: none;
 }
 
+.board {
+  display: flex;
+  border: solid black 0.1rem;
+  width: fit-content;
+  padding: 10px;
+}
+
+.list {
+  background-color: lightblue;
+  border: solid black 0.1rem;
+  margin: 0 5px;
+  height: 40rem;
+  width: 20rem;
+}
+
+.card{
+  border: solid black 0.1rem;
+  background-color: pink; 
+  margin: 2px 4px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
