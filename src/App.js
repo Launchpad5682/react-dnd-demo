@@ -1,4 +1,7 @@
 import "./App.css";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Board from "./Board";
 
 function App() {
   const boardLists = [
@@ -23,20 +26,9 @@ function App() {
   ];
 
   return (
-    <div className="board">
-      {boardLists
-        ? boardLists.map((boardList) => (
-            <div className="list">
-              <p>{boardList.boardName}</p>
-              {boardList.list
-                ? boardList.list.map((list) => (
-                    <div className="card">{list.data}</div>
-                  ))
-                : null}
-            </div>
-          ))
-        : null}
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <Board boardLists={boardLists} />
+    </DndProvider>
   );
 }
 
