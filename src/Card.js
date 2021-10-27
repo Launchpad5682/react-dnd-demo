@@ -2,13 +2,16 @@ import React from "react";
 import { useDrag } from "react-dnd";
 
 function Card({ boardId, data }) {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: "card",
-    item: { boardId: boardId, data: data },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
+  const [{ isDragging }, drag] = useDrag(
+    () => ({
+      type: "card",
+      item: { boardId: boardId, data: data },
+      collect: (monitor) => ({
+        isDragging: !!monitor.isDragging(),
+      }),
     }),
-  }));
+    [boardId, data]
+  );
 
   return (
     <div
