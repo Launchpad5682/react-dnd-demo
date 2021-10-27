@@ -1,19 +1,19 @@
 import React from "react";
-import Card from "./Card";
+import { useDataStoreContext } from "./DataLayer";
+import List from "./List";
 
-function Board({ boardLists }) {
+function Board() {
+  const { boardLists } = useDataStoreContext();
+
   return (
     <div className="board">
       {boardLists
         ? boardLists.map((boardList) => (
-            <div className="list">
-              <p>{boardList.boardName}</p>
-              {boardList.list
-                ? boardList.list.map((list) => (
-                    <Card data={list.data} boardId={list.boardId} />
-                  ))
-                : null}
-            </div>
+            <List
+              boardName={boardList.boardName}
+              list={boardList.list}
+              boardId={boardList.boardId}
+            />
           ))
         : null}
     </div>
